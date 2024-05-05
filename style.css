@@ -198,10 +198,10 @@ ul {
   .share{
     font-size: 1.2rem;
   }
-}
 
-.profile-icon svg{
-  transform: scale(1.1);
+  .profile-icon svg{
+    transform: scale(1.1);
+  }
 }
 
 .app section button{
