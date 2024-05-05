@@ -1,4 +1,4 @@
-:root{
+:root {
   --very-dark-grayish-blue: 217, 19%, 35%;
   --desaturated-dark-blue: 214, 17%, 51%;
   --grayish-blue: 212, 23%, 69%;
@@ -7,10 +7,10 @@
   --desaturated-dark-blue-hsl: hsl(var(--desaturated-dark-blue));
   --grayish-blue-hsl: hsl(var(--grayish-blue));
   --light-grayish-blue-hsl: hsl(var(--light-grayish-blue));
-  --Manrope: "Manrope",sans-serif;
+  --Manrope: "Manrope", sans-serif;
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,76 +20,188 @@
   font-weight: 500;
 }
 
-html, body{
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--light-grayish-blue-hsl);
 }
 
-main{
+.app {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.app {
+.card {
   display: grid;
-  grid-template-columns: 40% 60%;
   width: 50%;
+  grid-template-columns: 40% 60%;
   background-color: white;
   border-radius: 0.9rem;
-  overflow: hidden;
+  box-shadow: 13px 20px 30px hsl(var(--grayish-blue),.2);
 }
 
-.main-pic{
+@media screen and (max-width: 600px) {
+  .card{
+    display: block;
+    width: 94%;
+    overflow: hidden;
+  }
+}
+
+.main-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 0% 0%;
+  border-radius: 0.9rem 0 0 0.9rem;
 }
 
-.right-container{
+@media screen and (max-width: 600px) {
+  .main-pic {
+    border-radius: 0.9rem 0.9rem 0 0;
+  }
+}
+
+.right-container {
   padding: 2.7rem 3rem;
 }
 
-.right-container h1{
+@media screen and (max-width: 600px) {
+  .right-container{
+    padding: 2.7rem 2.7rem 1.5rem;
+  }
+}
+
+.right-container h1 {
   font-size: 1.54rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 2.1rem;
 }
 
-.right-container p{
+@media screen and (max-width: 600px) {
+  .right-container h1{
+    font-size: 1.3rem;
+    line-height: normal;
+  }
+}
+
+.right-container p {
   color: var(--desaturated-dark-blue-hsl);
   margin-bottom: 1.77rem;
 }
 
-.app section{
+@media screen and (max-width: 600px) {
+  .right-container p{
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.app section {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.app section div{
+@media screen and (max-width: 600px) {
+  .app section{
+    position: relative;
+  }
+}
+
+.profile-card {
   display: flex;
   gap: 1.3rem;
   align-items: center;
 }
 
-.app section div img{
+.profile-card img {
   width: 3.08rem;
   object-fit: contain;
   border-radius: 100%;
 }
 
-.app section header{
+@media screen and (max-width: 600px) {
+  .profile-card img{
+    width: 3.2rem;
+  }
+}
+
+.app section header {
   font-weight: 700;
 }
 
-.app section header span{
+@media screen and (max-width: 600px) {
+  .app section header{
+    font-size: 1.1rem;
+  }
+}
+
+.app section header span {
   display: block;
   margin-top: 0.2rem;
   color: var(--grayish-blue-hsl);
+}
+
+.app section aside {
+  position: relative;
+}
+
+.profile {
+  display: none;
+  position: absolute;
+  top: 0;
+  transform: translate(40%, -158%);
+  right: 0;
+  background-color: var(--very-dark-grayish-blue-hsl);
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .profile{
+    top: 0px;
+    transform: translate(10%, -47%);
+    right: 0;
+    padding: 2rem 8.8rem 2rem 2.8rem;
+    border-radius: 0rem;
+  }
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  color: white;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  ul{
+    gap: 1.7rem;
+  }
+}
+
+.share {
+  font-family: var(--Manrope);
+  color: var(--grayish-blue-hsl);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 600px) {
+  .share{
+    font-size: 1.2rem;
+  }
+}
+
+.profile-icon svg{
+  transform: scale(1.1);
 }
 
 .app section button{
@@ -103,7 +215,41 @@ main{
   border-radius: 100%;
 }
 
-ul{
-  list-style-type: none;
-  display: none;
+@media screen and (max-width: 600px) {
+  .app section button{
+    width: 2.7rem;
+    height: 2.7rem;
+    position: absolute;
+    bottom: 0;
+    transform: translate(0%, 52%);
+    right: 0;
+  }
+}
+
+.app section button svg {
+  fill: #6e8098;
+}
+
+.app section button:focus,
+.app section button:focus > svg {
+  cursor: pointer;
+  fill: white;
+  background-color: var(--desaturated-dark-blue-hsl);
+}
+
+.pointer {
+  height: 0;
+  width: 0;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-top: 2rem solid var(--very-dark-grayish-blue-hsl);
+  position: absolute;
+  bottom: 0;
+  transform: translate(112%, 50%);
+}
+
+@media screen and (max-width: 600px) {
+  .pointer{
+    display: none;
+  }
 }
